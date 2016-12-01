@@ -1,0 +1,53 @@
+﻿<div class="container">
+    <div class="section-title center">
+        <h2>Kontakta oss</h2>
+        <hr>
+        <p>Här hittar du information om våra öppettider och hur du kan kontakta oss.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <p>
+                <i class="fa fa-clock-o"></i>
+                Öppettider<br />
+                Mån-Fre: 10:00 - 18:00<br />
+                Lör: 10:00 - 15:00<br />
+                Sön: Stängt
+            </p>
+        </div>
+
+        <div class="col-md-3">
+            <p><i class="fa fa-map-marker"></i> Adress<br />Stockholmsvägen 2,<br>54233 Mariestad</p>
+        </div>
+
+        <div class="col-md-3">
+            <p><i class="fa fa-envelope-o"></i> Mail<br />Blomsterhornan@interfloramariestad.se</p>
+        </div>
+
+        <div class="col-md-3">
+            <p><i class="fa fa-phone"></i> Telefon<br />0501-101 81</p>
+        </div>
+    </div>
+
+    <div class="space"></div>
+    <div id="map" style="width:100%;height:500px"></div>
+
+    <script>
+        function myMap() {
+            var myCenter = new google.maps.LatLng(58.709397, 13.824070600000027);
+            var mapCanvas = document.getElementById("map");
+            var mapOptions = { center: myCenter, zoom: 16 };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+            var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "Här finns vi!"
+            });
+            infowindow.open(map, marker);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4BvXfY1dOwAxv3u2QiPk1eKcUuv5d598&callback=myMap"></script>
+
+</div>

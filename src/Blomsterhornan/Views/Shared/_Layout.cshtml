@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc.Razor
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blomsterhornan</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/fonts/font-awesome/css/font-awesome.css" />
+    <link href="~/css/custom-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+
+    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Navigation -->
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top text-shadow">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand page-scroll" href="#"><i class="flowerflower-doodle-outline"></i> Blomsterhörnan<strong></strong></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="page-scroll">Hem</a></li>
+                    <li><a href="#about-section" class="page-scroll">Om oss</a></li>
+                    <li><a href="#services-section" class="page-scroll">Utbud</a></li>
+                    <li><a href="#contact-section" class="page-scroll">Kontakt</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <div class="body-content">
+
+        <!-- Intro Section -->
+        <section id="intro-section">
+            @RenderBody()
+        </section>
+        <!-- About Section -->
+        <section id="about-section" class="text-center">
+            @{await Html.RenderPartialAsync("About");}
+        </section>
+        <!-- Services Section -->
+        <section id="services-section" class="text-center">
+            @{await Html.RenderPartialAsync("Services");}
+        </section>
+        <!-- Contact Section -->
+        <section id="contact-section" class="text-center">
+            @{await Html.RenderPartialAsync("Contact");}
+        </section>
+
+    </div>
+
+    <footer>
+        <div id="social-section">
+            <div class="container">
+                <div class="social">
+                    <ul>
+                        <li><a href="https://www.facebook.com/blomsterhornan.mariestad/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+    </script>
+    <script src="~/js/jquery.easing.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
